@@ -22,8 +22,8 @@ sudo docker run -d --rm \
   -e INIT_BACKUP=1 \
   -e INIT_BACKUP_TIMEOUT=5 \
   -e CRON_TIME='0 4 * * *' \
-  -v ./backups/:/backups/ \
-  -v ./sync/:/sync/ \
+  -v ./backups/:/root/backups/ \
+  -v ./sync/:/root/sync/ \
   -v ./log/:/var/log/ \
   cstao/docker-cron-backup:v1.0.0
 ```
