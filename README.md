@@ -36,7 +36,7 @@ version: '3.5'
 
 services:
   cron-backup:
-    image: cstao/cron-backup
+    image: cstao/cron-backup:v1.0.0
     container_name: cron-backup
     restart: unless-stopped
     volumes:
