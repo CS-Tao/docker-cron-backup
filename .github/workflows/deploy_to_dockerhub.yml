@@ -9,7 +9,7 @@ jobs:
       - name: Publish Image
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: cstao/docker-cron-backup
+          name: cstao/cron-backup
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           tags: "master,latest,v1.0.0"

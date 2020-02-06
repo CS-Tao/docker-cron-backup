@@ -25,7 +25,7 @@ sudo docker run -d --rm \
   -v ./backups/:/root/backups/ \
   -v ./sync/:/root/sync/ \
   -v ./log/:/var/log/ \
-  cstao/docker-cron-backup:v1.0.0
+  cstao/cron-backup:v1.0.0
 ```
 
 ### 使用 docker-compose
