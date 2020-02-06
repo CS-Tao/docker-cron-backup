@@ -36,8 +36,6 @@ version: '3.5'
 
 services:
   cron-backup:
-    build:
-      context: .
     image: cstao/cron-backup
     container_name: cron-backup
     restart: unless-stopped
@@ -73,9 +71,9 @@ services:
 
 *`SSH_PASSWD`不可为空，`SYNC_FILES`和`SYNC_FOLDERS`不可同时为空*
 
-## 卷
+## 持久卷
 
-- `/root/backups/`：备份文件夹，保存每次`./sync/`文件夹的压缩包
+- `/root/backups/`：备份文件夹，保存每次`/root/sync/`文件夹的压缩包
 - `/root/sync/`：同步文件夹，每次同步会清空之前的内容并下载最新内容
 - `/var/log/`：日志文件夹
 
