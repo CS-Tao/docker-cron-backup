@@ -1,0 +1,27 @@
+version: '3.5'
+
+services:
+  cron-backup:
+    image: cstao/cron-backup
+    build:
+      context: .
+    container_name: cron-backup
+    restart: unless-stopped
+    volumes:
+      - ./backups/:/root/backups/
+      - ./sync/:/root/sync/
+      - ./log/:/var/log/
+    env_file:
+      # - ./docker-compose.env
+      - ./.env
+    environment:
+      HOST: ${CRON_BACKUP_HOST}
+      SSH_PORT: ${CRON_BACKUP_SSH_PORT}
+      SSH_USER: ${CRON_BACKUP_SSH_USER}
+      SSH_PASSWD: ${CRON_BACKUP_SSH_PASSWD}
+      SYNC_FILES: ${CRON_BACKUP_SYNC_FILES}
+      SYNC_FOLDERS: ${CRON_BACKUP_SYNC_FOLDERS}
+      MAX_BACKUPS: 7
+      INIT_BACKUP: 1
+      INIT_BACKUP_TIMEOUT: 0
+      CRON_TIME: '* */1 * * *'
